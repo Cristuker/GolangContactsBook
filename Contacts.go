@@ -6,9 +6,10 @@ import (
 ) //formatação
 
 type Contact struct {
-	name  string
-	phone int
-	age   int
+	name     string
+	phone    int
+	age      int
+	isActive bool
 }
 
 func main() {
@@ -35,17 +36,21 @@ func main() {
 			var age int
 
 			fmt.Println("Nome:")
+			fmt.Print("-> ")
 			fmt.Scanln(&name)
 
 			fmt.Println("Telefone:")
+			fmt.Print("-> ")
 			fmt.Scanln(&phone)
 
 			fmt.Println("Idade: ")
+			fmt.Print("-> ")
 			fmt.Scanln(&age)
 
 			contacts[addContacts].name = name
 			contacts[addContacts].phone = phone
 			contacts[addContacts].age = age
+			contacts[addContacts].isActive = true
 
 			fmt.Println("Contao adicionado:\n")
 			fmt.Println("Nome: " + name + "\nIdade: " + strconv.Itoa(age) + "\nTelefone: " + strconv.Itoa(phone))
@@ -56,12 +61,28 @@ func main() {
 			fmt.Println("Contatos cadastrados:\n")
 
 			for i := 0; i < addContacts; i++ {
-				fmt.Println("Nome: " + contacts[i].name + "\nIdade: " + strconv.Itoa(contacts[i].age) + "\nTelefone: " + strconv.Itoa(contacts[i].phone) + "\n")
+
+				if contacts[i].isActive == true {
+					fmt.Println("Nº " + strconv.Itoa(i))
+					fmt.Println("Nome: " + contacts[i].name + "\nIdade: " + strconv.Itoa(contacts[i].age) + "\nTelefone: " + strconv.Itoa(contacts[i].phone) + "\n")
+				}
+
 			}
 
-			fmt.Println("Mostrar todos os contatos")
 		case 3:
-			fmt.Println("Remover um contato")
+
+			var removeIndex int
+
+			fmt.Println("Digite o número do contato que deseja remover")
+			fmt.Print("-> ")
+			fmt.Scanln(&removeIndex)
+			contacts[removeIndex].isActive = false
+			var showLater = contacts[removeIndex]
+
+			fmt.Println("\n\nContato removido com sucesso!\n")
+			fmt.Println("Nº " + strconv.Itoa(removeIndex))
+			fmt.Println("Nome: " + showLater.name + "\nIdade: " + strconv.Itoa(showLater.age) + "\nTelefone: " + strconv.Itoa(showLater.phone) + "\n")
+
 		default:
 			fmt.Println("Insira uma opção válida\n")
 		}
@@ -71,8 +92,8 @@ func main() {
 
 /*
 pegar dados do menu - ok
-switch para as operacações
-adicionar no array
+switch para as operacações - ok
+adicionar no array - ok
 tirar do array
-mostrar o conteudo do array
+mostrar o conteudo do array - ok
 */
