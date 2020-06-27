@@ -1,9 +1,9 @@
-package main //nome do pacote
+package main
 
 import (
 	"fmt"
 	"strconv"
-) //formatação
+)
 
 type Contact struct {
 	name     string
@@ -89,11 +89,3 @@ func main() {
 
 	}
 }
-
-/*
-pegar dados do menu - ok
-switch para as operacações - ok
-adicionar no array - ok
-tirar do array - ok
-mostrar o conteudo do array - ok
-*/
