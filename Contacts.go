@@ -94,6 +94,6 @@ func main() {
 pegar dados do menu - ok
 switch para as operacações - ok
 adicionar no array - ok
-tirar do array
+tirar do array - ok
 mostrar o conteudo do array - ok
 */
