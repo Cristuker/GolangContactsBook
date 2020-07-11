@@ -1,11 +1,11 @@
-package main
+package main //Definindo para o pacote main
 
 import (
-	"fmt"
-	"strconv"
+	"fmt"     //Biblioteca para formatar a saida do terminal
+	"strconv" //Biblioteca para conversão, usado para converter inteiro em string
 )
 
-type Contact struct {
+type Contact struct { //Struct da mesma forma que é usada no C
 	name     string
 	phone    int
 	age      int
@@ -13,12 +13,13 @@ type Contact struct {
 }
 
 func main() {
-
+	//A atribuição no Golang é feito por meio do := que é usado para declarar variaveis de formas curtas
 	contacts := [50]Contact{}
-	var addContacts int = 0
+	var addContacts int = 0 // O = também é usado para atribuições mais extensas var NomedaVariavel tipo da variavel
 	var options int = 1
 
-	for options != 0 {
+	//Em go os parenteses não são usados para definiri uma expressão como nas outras linaguagens
+	for options != 0 { //No golang não existe while ou do while e sim o for acaba sendo adaptado para a forma que deseja usar
 		fmt.Println("** Agenda **\n")
 
 		fmt.Println("Menu\n")
@@ -62,7 +63,7 @@ func main() {
 
 			for i := 0; i < addContacts; i++ {
 
-				if contacts[i].isActive == true {
+				if contacts[i].isActive == true { //Em if os parenteses não aparecem também, apenas as chaves
 					fmt.Println("Nº " + strconv.Itoa(i))
 					fmt.Println("Nome: " + contacts[i].name + "\nIdade: " + strconv.Itoa(contacts[i].age) + "\nTelefone: " + strconv.Itoa(contacts[i].phone) + "\n")
 				}
